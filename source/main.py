@@ -1,5 +1,8 @@
 from DBConnect import *
 from ConfigParserDB import *
+from Blog import *
+import flask
+import jsonify
 
 if __name__ == "__main__":
     print ("Backend stating...")
@@ -9,4 +12,11 @@ if __name__ == "__main__":
     config_db_parser = ConfigParserDB(file_config,section_config)
     db_config=config_db_parser.getConfig()
     blog_db = DBConnect(db_config)
-    blog_db.Connect()
+    db_cursor=blog_db.Connect()
+    print("Getting DB information")
+    blog = Blog(db_cursor)
+    blog.getPostCount()
+    blog.getPostPublished()
+    blog.getPosts()
+    
+    blog_db.DBDisconnect(db_cursor)

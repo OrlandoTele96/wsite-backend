@@ -17,11 +17,31 @@ class DBConnect:
             cur.execute('SELECT version()')
             db_version = cur.fetchone()
             print(db_version)
+            #self.getTable(cur)
+            #db_posts = cur.fetchone()
+            #print(db_posts, type(db_posts))
         except (Exception, psycopg2.DatabaseError) as Error:
             print(Error)
         finally:
             if conn is not None:
-                conn.close()
-                print("DB connection closed...")
+                print ("DB conection is successful")
+                return cur
+            #    conn.close()
+            #    print("DB connection closed...")
+
+    def getTable(self,cursor):
+        print ("This method query for table posts list")
+        if cursor != None:
+            cursor.execute('SELECT * FROM blog.posts')
+
+    def DBDisconnect(self,db_cursor):
+        if db_cursor is not None:
+            db_cursor.close()
+            print("Conection DB is closed")
+
+
+    
+
+
 
     
