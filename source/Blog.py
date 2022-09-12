@@ -17,7 +17,8 @@ class Blog:
             for p in posts:
                 post = Post(p)
                 self.posts.append(post.convertToDict())
-            print (self.posts)
+        
+
 
 
     def getPostCount(self):
