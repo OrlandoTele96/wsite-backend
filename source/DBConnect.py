@@ -1,4 +1,4 @@
-from audioop import add
+#from audioop import add
 import psycopg2
 
 class DBConnect:
