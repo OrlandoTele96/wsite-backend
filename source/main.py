@@ -4,9 +4,10 @@ from Blog import *
 from flask import Flask, redirect, url_for, request
 from flask import jsonify
 import requests
+import os
 #import jsonify
 
-file_config = "/Users/jorgeorlandogonzalezguzman/Documents/Projects/website/wsite-backend/source/postgres.ini"
+file_config = os.environ['PWD']+"/postgres.ini"
 section_config="postgresql"
 config_db_parser = ConfigParserDB(file_config,section_config)
 
