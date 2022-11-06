@@ -2,3 +2,4 @@ Flask
 jsonify
 psycopg2
 configparser
+requests
